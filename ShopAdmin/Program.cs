@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ShopAdmin.Models;
+using ShopAdmin.Models.Repository;
 
 namespace ShopAdmin
 {
@@ -14,6 +15,8 @@ namespace ShopAdmin
 
             builder.Services.AddDbContext<ShopDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
