@@ -17,6 +17,10 @@ namespace ShopAdmin
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<IPieRepository,PieRepository>();
+            builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
+
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
